@@ -63,9 +63,9 @@
         android:layout_height="wrap_content"
         android:layout_marginVertical="@dimen/common_spacing"
         android:autoLink="web"
+        android:paddingBottom="@dimen/subheading_spacing"
         app:layout_constraintTop_toBottomOf="@+id/barrier"
         tools:text="@sample/posts.json/data/content" />
-
 
     <ImageButton
         android:id="@+id/like"
@@ -74,10 +74,10 @@
         android:background="@android:color/transparent"
         android:contentDescription="@string/description_post_like"
         app:layout_constraintTop_toBottomOf="@+id/content"
-        app:srcCompat="@drawable/ic_baseline_like_border_24" />
+        app:srcCompat="@drawable/ic_baseline_like_24" />
 
     <TextView
-        android:id="@+id/favorite_count"
+        android:id="@+id/likeCount"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="@dimen/subheading_spacing"
@@ -93,12 +93,12 @@
         android:layout_marginStart="@dimen/common_spacing"
         android:background="@android:color/transparent"
         android:contentDescription="@string/description_post_share"
-        app:layout_constraintStart_toEndOf="@+id/favorite_count"
+        app:layout_constraintStart_toEndOf="@+id/likeCount"
         app:layout_constraintTop_toBottomOf="@+id/content"
         app:srcCompat="@drawable/ic_baseline_share_24" />
 
     <TextView
-        android:id="@+id/share_count"
+        android:id="@+id/shareCount"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="@dimen/subheading_spacing"
@@ -107,18 +107,18 @@
         tools:text="5" />
 
     <ImageButton
-        android:id="@+id/visibility"
+        android:id="@+id/views"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="@dimen/subheading_spacing"
         android:background="@android:color/transparent"
         android:contentDescription="@string/description_post_visibility"
-        app:layout_constraintEnd_toStartOf="@+id/visibility_count"
+        app:layout_constraintEnd_toStartOf="@+id/viewsCount"
         app:layout_constraintTop_toBottomOf="@+id/content"
-        app:srcCompat="@drawable/ic_baseline_visibility_24" />
+        app:srcCompat="@drawable/ic_baseline_views_24" />
 
     <TextView
-        android:id="@+id/visibility_count"
+        android:id="@+id/viewsCount"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
