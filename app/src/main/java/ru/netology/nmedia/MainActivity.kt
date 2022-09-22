@@ -31,10 +31,9 @@ class MainActivity : AppCompatActivity() {
             }
         })
         binding.list.adapter = adapter
-        viewModel.data.observe(this) { post ->
-            adapter.list = post
+        viewModel.data.observe(this) { posts ->
+            adapter.submitList(posts)
         }
-
 
     }
 
