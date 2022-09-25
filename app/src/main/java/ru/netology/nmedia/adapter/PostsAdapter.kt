@@ -2,6 +2,7 @@ package ru.netology.nmedia.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.widget.PopupMenu
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
@@ -14,6 +15,8 @@ interface OnInteractionListener {
     fun onLikeListener(post: Post) {}
     fun onShareListener(post: Post) {}
     fun getCountDisplay(count: Int): String
+    fun onRemoveListener(post: Post) {}
+    fun onEditListener(post: Post) {}
 }
 
 class PostsAdapter(
@@ -54,6 +57,27 @@ class PostViewHolder(
             share.setOnClickListener {
                 onInteractionListener.onShareListener(post)
             }
+
+            menu.setOnClickListener {
+                PopupMenu(it.context, it).apply {
+                    inflate(R.menu.options_post)
+                    setOnMenuItemClickListener { item ->
+                        when (item.itemId) {
+                            R.id.remove -> {
+                                onInteractionListener.onRemoveListener(post)
+                                true
+                            }
+                            R.id.edit -> {
+                                onInteractionListener.onEditListener(post)
+                                true
+                            }
+
+                            else -> false
+                        }
+                    }
+                }.show()
+            }
+
         }
     }
 }
