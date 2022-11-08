@@ -43,6 +43,7 @@ class PostViewHolder(
             author.text = post.author
             published.text = post.published
             content.text = post.content
+            like.isChecked = post.likedByMe
             like.text = onInteractionListener.getCountDisplay(post.likes)
             share.text = onInteractionListener.getCountDisplay(post.shared)
 
