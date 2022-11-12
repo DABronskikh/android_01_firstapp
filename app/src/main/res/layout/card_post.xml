@@ -66,6 +66,42 @@
         app:layout_constraintTop_toBottomOf="@+id/barrier"
         tools:text="@sample/posts.json/data/content" />
 
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/videoGroup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="visible"
+        app:constraint_referenced_ids="play,videoCard" />
+
+    <ImageView
+        android:id="@+id/videoCard"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/subheading_spacing"
+        android:layout_marginEnd="@dimen/subheading_spacing"
+        android:src="@drawable/ic_baseline_video_label_100"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/content"
+        tools:srcCompat="@sample/posts.json/data/video" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/play"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:icon="@drawable/ic_baseline_play_circle_outline_24"
+        app:layout_constraintBottom_toBottomOf="@+id/videoCard"
+        app:layout_constraintEnd_toEndOf="@+id/videoCard"
+        app:layout_constraintStart_toStartOf="@+id/videoCard"
+        app:layout_constraintTop_toBottomOf="@+id/content" />
+
+    <androidx.constraintlayout.widget.Barrier
+        android:id="@+id/footer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:barrierDirection="bottom"
+        app:constraint_referenced_ids="videoCard" />
+
     <com.google.android.material.button.MaterialButton
         android:id="@+id/like"
         style="@style/Widget.AppTheme.LikeButton"
@@ -75,7 +111,7 @@
         android:contentDescription="@string/description_post_like"
         app:icon="@drawable/ic_like_24dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/content"
+        app:layout_constraintTop_toBottomOf="@id/footer"
         tools:checked="@sample/posts.json/data/likedByMe"
         tools:text="@sample/posts.json/data/likes" />
 
@@ -88,7 +124,7 @@
         android:contentDescription="@string/description_post_share"
         app:icon="@drawable/ic_baseline_share_24"
         app:layout_constraintStart_toEndOf="@+id/like"
-        app:layout_constraintTop_toBottomOf="@id/content"
+        app:layout_constraintTop_toBottomOf="@id/footer"
         tools:text="@sample/posts.json/data/likes" />
 
     <com.google.android.material.button.MaterialButton
@@ -99,6 +135,6 @@
         android:contentDescription="@string/description_post_share"
         app:icon="@drawable/ic_baseline_views_24"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/content" />
+        app:layout_constraintTop_toBottomOf="@+id/footer" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

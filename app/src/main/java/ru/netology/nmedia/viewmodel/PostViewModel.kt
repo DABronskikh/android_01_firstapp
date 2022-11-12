@@ -9,6 +9,7 @@ import ru.netology.nmedia.repository.PostRepositoryInMemoryImpl
 private val empty = Post(
     id = 0,
     content = "",
+    video = null,
     author = "",
     likedByMe = false,
     published = "",
@@ -41,8 +42,6 @@ class PostViewModel : ViewModel() {
         }
     }
 
-
-
     fun getCountDisplay(count: Int): String {
         return if (count == 0) {
             ""
@@ -60,7 +59,6 @@ class PostViewModel : ViewModel() {
     }
 
     fun likeById(id: Long) = repository.likeById(id)
-    fun shareById(id: Long) = repository.shareById(id)
     fun removeById(id: Long) = repository.removeById(id)
 
 }
